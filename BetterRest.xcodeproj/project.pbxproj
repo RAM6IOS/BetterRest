@@ -13,6 +13,7 @@
 		049B080F26BAE46800C17ABA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 049B080E26BAE46800C17ABA /* Preview Assets.xcassets */; };
 		049B081926BAE46A00C17ABA /* BetterRestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049B081826BAE46A00C17ABA /* BetterRestTests.swift */; };
 		049B082326BAE46A00C17ABA /* BetterRestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049B082226BAE46A00C17ABA /* BetterRestUITests.swift */; };
+		04CA4AC826BC4C9200F8B06D /* SleepCalculator.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 04CA4AC726BC4C9200F8B06D /* SleepCalculator.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		049B081826BAE46A00C17ABA /* BetterRestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterRestTests.swift; sourceTree = "<group>"; };
 		049B081E26BAE46A00C17ABA /* BetterRestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BetterRestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		049B082226BAE46A00C17ABA /* BetterRestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterRestUITests.swift; sourceTree = "<group>"; };
+		04CA4AC726BC4C9200F8B06D /* SleepCalculator.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SleepCalculator.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 			children = (
 				049B080726BAE46200C17ABA /* BetterRestApp.swift */,
 				049B080926BAE46200C17ABA /* ContentView.swift */,
+				04CA4AC726BC4C9200F8B06D /* SleepCalculator.mlmodel */,
 				049B080B26BAE46800C17ABA /* Assets.xcassets */,
 				049B080D26BAE46800C17ABA /* Preview Content */,
 			);
@@ -254,6 +257,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04CA4AC826BC4C9200F8B06D /* SleepCalculator.mlmodel in Sources */,
 				049B080A26BAE46200C17ABA /* ContentView.swift in Sources */,
 				049B080826BAE46200C17ABA /* BetterRestApp.swift in Sources */,
 			);
