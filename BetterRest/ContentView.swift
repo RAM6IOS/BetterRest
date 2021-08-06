@@ -14,11 +14,25 @@ struct ContentView: View {
     @State private var alertTitle = ""
     @State private var alertMessage = ""
     @State private var showingAlert = false
+    var colors = [ 1 , 2, 3, 4,5,6,7,8,9,10,11,12]
+       
     
     var body: some View {
         NavigationView {
        Form{
-           VStack(alignment: .leading, spacing: 0) {
+           Section(){
+               Text("Your Recommended Bed Tim:")
+                   .font(.headline)
+                   
+        
+               Text(calculateBedtime())
+                   .font(.largeTitle)
+                  .foregroundColor(Color(UIColor.systemOrange))
+               
+              
+               
+           }
+    Section{
             Text("When do you want to wake up?")
                         .font(.headline)
 
@@ -26,7 +40,7 @@ struct ContentView: View {
                         .labelsHidden()
                         .datePickerStyle(WheelDatePickerStyle())
            }
-           VStack(alignment: .leading, spacing: 0) {
+           Section {
             Text("Desired amount of sleep")
                 .font(.headline)
 
@@ -34,32 +48,30 @@ struct ContentView: View {
                 Text("\(sleepAmount, specifier: "%g") hours")
             }
            }
-           VStack(alignment: .leading, spacing: 0) {
+           
+           Section {
             Text("Daily coffee intake")
                 .font(.headline)
 
-            Stepper(value: $coffeeAmount, in: 1...20) {
-                if coffeeAmount == 1 {
-                    Text("1 cup")
-                } else {
-                    Text("\(coffeeAmount) cups")
-                }
-            }
+               Picker("Please choose how many cup", selection: $coffeeAmount) {
+                               ForEach(colors, id: \.self) {
+                                   Text("\($0)")
+                               }
+                           }
+               if coffeeAmount == 1{
+                           Text(" \(coffeeAmount)cup")
+               }else{
+                   Text(" \(coffeeAmount)cups")
+               }
            }
         
     }
         .navigationBarTitle("BetterRest")
-        .navigationBarItems(trailing:
-                                Button(action: calculateBedtime) {
-                                        Text("Calculate")
-                                    }
-        )
+        
 
         
         }
-        .alert(isPresented: $showingAlert) {
-            Alert(title: Text(alertTitle), message: Text(alertMessage), dismissButton: .default(Text("OK")))
-        }
+        
         
 }
     
@@ -70,7 +82,8 @@ struct ContentView: View {
         return Calendar.current.date(from: components) ?? Date()
     }
     
-    func calculateBedtime() {
+   
+    func calculateBedtime() -> String {
         let model = SleepCalculator()
         
         
@@ -85,15 +98,14 @@ struct ContentView: View {
             let formatter = DateFormatter()
             formatter.timeStyle = .short
 
-            alertMessage = formatter.string(from: sleepTime)
-            alertTitle = "Your ideal bedtime is…"
+           
+            return  formatter.string(from: sleepTime)
 
             // more code here
         } catch {
-            alertTitle = "Error"
-            alertMessage = "Sorry, there was a problem calculating your bedtime."
+          return "Sorry, there was a problem calculating your bedtime."
         }
-        showingAlert = true
+        
     }
 }
 
